@@ -1,0 +1,41 @@
+<h3 class="text-center m-4">STUDENT DETAILS</h3>
+ 
+<div class="container mt-0 pt-5">
+  <form (ngSubmit)="filterStudents()">
+    <div class="input-group rounded mb-5">
+      <input [(ngModel)]="stud_mark" name="stud_mark" type="number" class="form-control rounded"
+       placeholder="Enter minimum marks" aria-label="Search" aria-describedby="search-addon" />
+      <button type="submit" class="btn btn-dark">Filter Students</button>
+    </div>
+  </form>
+ 
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="sortSelect">Sort By</label>
+    <select class="form-select" id="sortSelect" (change)="sortStudents(sortSelect.value)" #sortSelect>
+      <option value="name">Name</option>
+      <option value="age">Age</option>
+      <option value="department">Department</option>
+      <option value="marks">Total Marks</option>
+    </select>
+  </div>
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Department</th>
+        <th scope="col">Total Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentData">
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.department }}</td>
+        <td>{{ student.marks }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
